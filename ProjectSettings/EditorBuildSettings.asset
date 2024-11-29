@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/1. Scenes/05 Graveyard.unity
+    path: Assets/1. Scenes/LobbyScene.unity
+    guid: b4a0e6bded94c424cacca4bb45310ba4
+  - enabled: 1
+    path: Assets/1. Scenes/GameScene.unity
     guid: 669716b1cdf60e943962eae184f2693e
   m_configObjects: {}
