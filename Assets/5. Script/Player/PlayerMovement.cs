@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnimator;
     public Rigidbody playerRb;
     public PhotonView pv;
+    public AudioSource playerAudio;
 
     public bool canMove = true;
     public float inputZ;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         DialogueManager.Instance.ResetDatabase();
+        playerAudio.enabled = false;
         flashControl = GetComponent<FlashControl>(); 
         pv = GetComponent<PhotonView>();
         startSpeed = speed;
@@ -62,12 +64,12 @@ public class PlayerMovement : MonoBehaviour
             if (pv.IsMine)
             {
                 #region movement
-                playerRb.MovePosition(playerRb.position + transform.TransformDirection(side) * (inputX * (speed / 2) * Time.deltaTime));
-                if (inputZ > 0)
+                playerRb.MovePosition(playerRb.position + transform.TransformDirection(side) * (inputX * (speed / 2) * Time.deltaTime)); //좌우 이동
+                if (inputZ > 0) //앞으로 이동
                 {
                     playerRb.MovePosition(playerRb.position + transform.TransformDirection(dir) * (inputZ * speed * Time.deltaTime));
                 }
-                else if (inputZ < 0)
+                else if (inputZ < 0) // 뒤로 이동시 감속
                 {
                     playerRb.MovePosition(playerRb.position + transform.TransformDirection(dir) * ((inputZ + 0.5f) * speed * Time.deltaTime));
 
@@ -75,12 +77,14 @@ public class PlayerMovement : MonoBehaviour
                 #endregion
 
                 #region move_animation
-                if (inputZ != 0 || inputX != 0)
+                if (inputZ != 0 || inputX != 0) // 이동중인지 판단 후 애니메이션 적용
                 {
-                    playerAnimator.SetBool("isMove", true);
+                    playerAnimator.SetBool("isMove", true); 
+                    playerAudio.enabled = true;
                 }
                 else
                 {
+                    playerAudio.enabled = false;
                     playerAnimator.SetBool("isMove", false);
                 }
                 playerAnimator.SetFloat("Zdir", inputZ);
@@ -88,15 +92,17 @@ public class PlayerMovement : MonoBehaviour
                 #endregion
 
                 #region run
-                if (Input.GetKey(KeyCode.LeftShift))
+                if (Input.GetKey(KeyCode.LeftShift)) // 달리기
                 {
                     speed = startSpeed * 2;
                     playerAnimator.speed = 2;
+                    playerAudio.pitch = 1.4f;
                 }
-                if (Input.GetKeyUp(KeyCode.LeftShift))
+                if (Input.GetKeyUp(KeyCode.LeftShift)) // 달리기 종료
                 {
                     playerAnimator.speed = 1;
                     speed = startSpeed;
+                    playerAudio.pitch = 1;
                 }
                 #endregion
                 
@@ -105,17 +111,17 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerAnimator.SetBool("isMove", false);
+            playerAudio.enabled = false;
         }
     }
 
     void OnConversationStarted(Transform actor) // 대화중일때 못움직이게 하기
     {
         canMove = false;
-        flashControl.OnFlash(false);
         flashControl.canflash = false;
     }
 
-    void OnConversationEnded(Transform actor)
+    void OnConversationEnded(Transform actor) // 지금 보면 ㅈㄴ 못짰다
     {
         canMove = true;
         flashControl.canflash = true;
@@ -123,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
         flashControl.flashSlider.gameObject.SetActive(true);
         speed = startSpeed;
     }
-    [PunRPC]
+    [PunRPC] // 자식오브젝트에 포톤뷰 넣기 싫어서 부모에 몰아 넣으면 생기는 일
     public void RPCOnFlash(bool ON)
     {
         flashControl.OnFlash(ON);

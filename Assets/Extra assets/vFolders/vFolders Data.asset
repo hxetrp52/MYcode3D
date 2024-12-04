@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb9c12a8c6c949f7af83a3d238359d0, type: 3}
+  m_Name: vFolders Data
+  m_EditorClassIdentifier: 
+  folderDatas_byGuid:
+    keys:
+    - 0c5f6febf40125b42b8204e0654a5dc9
+    - 92049fad212741e498c860bf5d9282ce
+    - ec45962a3695a2a48b3617e0c13d01ec
+    - 2ac83c0e219ada34d9bd7ef7d9a7aac6
+    - 3858f0e37b6b52c448b7076cf4d2edc9
+    - b4f94d6fd9960954f8319a2cd2440470
+    - 205b40e6ef3434342801548b027c27d1
+    - e65721ff001030f4f9113dfaa6460b2d
+    - 1f8c7c42544f57b479060cf7ccacd0f4
+    - b873c304c40b7f1448686e1ad6669b34
+    - 9b5d393ab8e20f94c80554adc06c5b7d
+    - ad96f795769de694a966356dbe62e15e
+    values:
+    - iconNameOrGuid: AudioClip Icon
+      colorIndex: 6
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: cs Script Icon
+      colorIndex: 5
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: SceneAsset Icon
+      colorIndex: 1
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: Shader Icon
+      colorIndex: 2
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: AnimationClip Icon
+      colorIndex: 3
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: Font Icon
+      colorIndex: 4
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: RawImage Icon
+      colorIndex: 7
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 6
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 6
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: Settings Icon
+      colorIndex: 5
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 8c00072895782fb4d918363c8ff501a5
+      colorIndex: 5
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: Rigidbody Icon
+      colorIndex: 5
+      isIconRecursive: 0
+      isColorRecursive: 0
+  bookmarks: []

@@ -6,8 +6,7 @@ using UnityEngine;
 public class NPCAnimationController : MonoBehaviour
 {
     public Animator npcAnimator;
-    FlashControl flashControl;
-
+      
     void Start()
     {
         npcAnimator = GetComponent<Animator>();
